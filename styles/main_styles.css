@@ -126,13 +126,13 @@ p a:hover::after
 }
 ::selection
 {
-	background: #FFD266;
-	color: #C88E00;
+	background: #66adff;
+	color:blue;
 }
 p::selection
 {
-	background: #FFD266;
-	color: #C88E00;
+	background: #6696ff;
+	color: #008fc8;
 }
 h1{font-size: 36px;}
 h2{font-size: 22px;}
@@ -382,7 +382,12 @@ section
 }
 .main_nav_item a:hover
 {
-	color: #ffb606;
+	color: #1290CB;
+}
+
+.main_nav_item
+{
+	color: cornsilk;
 }
 
 /*********************************
@@ -393,7 +398,7 @@ section
 {
 	width: 279px;
 	height: 100%;
-	background: #ffb606;
+	background:#1290CB;
 }
 .header_side img
 {
@@ -435,7 +440,7 @@ section
 }
 .hamburger_container:hover i
 {
-	color: #ffb606;
+	color: #1290CB;
 }
 
 /*********************************
@@ -513,7 +518,7 @@ section
 }
 .menu_item a:hover
 {
-	color: #ffb606;
+	color: #1290CB;
 }
 .menu_close_container
 {
@@ -560,7 +565,7 @@ section
 .menu_close_container:hover .menu_close,
 .menu_close_container:hover .menu_close::after
 {
-	background: #ffb606;
+	background: #1290CB;
 }
 
 /*********************************
@@ -594,7 +599,7 @@ section
 }
 .menu_social_item a i:hover
 {
-	color: #ffb606;
+	color: #1290CB;
 }
 .menu_container.active .menu_social_container
 {
@@ -693,7 +698,7 @@ section
 }
 .hero_slide_content h1 span
 {
-	background: #ffb606;
+	background: #1290CB;
 	padding-left: 13px;
 	padding-right: 13px;
 	margin-left: -12px;
@@ -741,7 +746,7 @@ section
 }
 .hero_slider_nav:hover
 {
-	background: #ffb606;
+	background: #1290CB;
 }
 .hero_slider_nav:hover span
 {
@@ -793,7 +798,7 @@ section
 }
 .hero_box:hover
 {
-	background: #ffb606;
+	background: #1290CB;
 }
 .hero_box img
 {
@@ -985,7 +990,7 @@ section
 {
 	width: 67px;
 	height: 67px;
-	background: #ffb606;
+	background: #1290CB;
 	margin-left: auto;
 }
 .course_price span
@@ -1007,7 +1012,7 @@ section
 .register_section
 {
 	width: 100%;
-	background: #ffb606;
+	background: #1290CB;
 	padding-top: 156px;
 	padding-bottom: 161px;
 }
@@ -1104,13 +1109,13 @@ input:last-of-type
 .input_field:focus
 {
 	outline: none !important;
-	border: solid 2px #ffb606;
+	border: solid 2px #1290CB;
 }
 .search_submit_button
 {
 	width: 100%;
 	height: 48px;
-	background: #ffb606;
+	background: #1290CB;
 	color: #FFFFFF;
 	font-size: 14px;
 	text-transform: uppercase;
