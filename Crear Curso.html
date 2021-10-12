@@ -60,7 +60,7 @@
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link  active" href="panel.html">
+            <a class="nav-link  active" href="Crear curso.html">
                <span data-feather="home"></span>
                Crear Curso
             </a>
@@ -91,40 +91,50 @@
             <h1 class="h2">Crear curso</h1>
         </div>
 
-      <form class="row g-3 needs-validation" novalidate>
-        <div class="col-md-12">
-            <label for="validationCustom01" class="form-label">Nombre del curso</label>
-            <input type="text" class="form-control" id="validationCustom01" placeholder="Ingrese el nombre del curso" required>
-            
-        </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre del tema</th>
+              <th>R online</th>
+              <th>Google Colab</th>
+              <th>Git</th>
+              <th>PDF</th>
+              <th>Eliminar</th>
+              <th>+ Temas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><input type="text" class="form-control" id="validationCustom02" placeholder="Nombre del tema" required></td>
+              <td><input type="text" class="form-control" id="validationCustom03" placeholder="Link a RStudio online" required></td>
+              <td><input type="text" class="form-control" id="validationCustom05" placeholder="Link a Google Colab" required></td>
+              <td><input type="text" class="form-control" id="validationCustom05" placeholder="Link a Git" required></td>
+              <td><button  class="btn btn-primary" type="submit">Cargar</button></td>
+              <td><button type="button" class="btn btn-danger">-</button></td>
+              <td><button type="button" class="btn btn-success">+</button></td>
+            </tr>
 
-        <div class="col-2-md-3">
-            <button class="btn btn-primary" type="submit">Cargar imagen</button>
-        </div>
-
-  <div class="col-md-3">
-    <label for="validationCustom02" class="form-label">Temas del curso</label>
-    <input type="text" class="form-control" id="validationCustom02" placeholder="Nombre del tema" required>
-  </div>
-  
-  <div class="col-md-3">
-    <label for="validationCustom03" class="form-label">R online </label>
-    <input type="text" class="form-control" id="validationCustom03" placeholder="Link a RStudio online" required>
-  </div>
-
-  <div class="col-md-3">
-    <label for="validationCustom05" class="form-label">Google Colab</label>
-    <input type="text" class="form-control" id="validationCustom05" placeholder="Link a Google Colab" required> 
-  </div>
-
-    <div class="col-md-3">
-        <label for="validationCustom03" class="form-label">PDF</label>
-        <button  class="btn btn-primary" type="submit">Cargar</button>
-    </div>
+            <tr>
+                <td>2</td>
+                <td><input type="text" class="form-control" id="validationCustom02" placeholder="Nombre del tema" required></td>
+                <td><input type="text" class="form-control" id="validationCustom03" placeholder="Link a RStudio online" required></td>
+                <td><input type="text" class="form-control" id="validationCustom05" placeholder="Link a Google Colab" required></td>
+                <td><input type="text" class="form-control" id="validationCustom05" placeholder="Link a Git" required></td>
+                <td><button  class="btn btn-primary" type="submit">Cargar</button></td>
+                <td><button type="button" class="btn btn-danger">-</button></td>
+                <td><button type="button" class="btn btn-success">+</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
 
   
   <div class="col-12">
-    <button class="btn btn-primary" type="submit">Agragar otro tema</button>
+    <button class="btn btn-primary" type="submit">Guardar</button>
   </div>
 </form>
 
