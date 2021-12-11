@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Contenido</title>
+		<title>Publicaciones</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="description" content="Course Project">
@@ -31,17 +31,39 @@
 					<nav class="main_nav_container">
 						<div class="main_nav">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="index.html">Inicio</a></li>
-								<li class="main_nav_item"><a href="Cursos.html">Cursos</a></li>
-								<li class="main_nav_item"><a href="Maestros.html">Docentes</a></li>
-								<li class="main_nav_item"><a href="Publicaciones.html">Publicaciones</a></li>
+								<li class="main_nav_item"><a href="index.php">Inicio</a></li>
+								<li class="main_nav_item"><a href="Cursos.php">Cursos</a></li>
+								<li class="main_nav_item"><a href="Maestros.php">Docentes</a></li>
+								<li class="main_nav_item"><a href="Publicaciones.php">Publicaciones</a></li>
+								<?php
+									session_start();
+									if(isset($_SESSION['roles_idroles'])){
+										if($_SESSION['roles_idroles'] == 2){
+											echo "<li class='main_nav_item'><a href='panel.php'>Mi Panel</a></li>";
+										}elseif($_SESSION['roles_idroles'] == 3) {
+											echo "<li class='main_nav_item'><a href='Crear Curso.php'>Mi Panel</a></li>";
+										}
+
+									}
+								?>
 							</ul>
 						</div>
 					</nav>
 				</div>
 
 				<div class="header_side d-flex flex-row justify-content-center align-items-center color: cornsilk;">
-					<li class="main_nav_item" color: cornsilk; ><a href="login.html">Iniciar sesion</a></li>
+				<?php
+					session_start();
+					if (isset($_SESSION['roles_idroles'])) {
+						echo "<div class='header_side d-flex flex-row justify-content-center align-items-center color: cornsilk;'>";
+						echo "<li class='main_nav_item' color: cornsilk; ><a href='controller/closeSesion.php'>Cerrar sesion</a></li>";
+						echo "</div>";
+ 					}else{
+						echo "<div class='header_side d-flex flex-row justify-content-center align-items-center color: cornsilk;'>";
+						echo "<li class='main_nav_item' color: cornsilk; ><a href='login.php'>Iniciar sesion</a></li>";
+						echo "</div>";
+					}
+				?>
 				</div>
 
 				<!-- Hamburger -->
@@ -63,11 +85,22 @@
 				<div class="menu_inner menu_mm">
 					<div class="menu menu_mm">
 						<ul class="menu_list menu_mm">
-							<li class="menu_item menu_mm"><a href="index.html">Inicio</a></li>
-							<li class="menu_item menu_mm"><a href="Cursos.html">Cursos</a></li>
-							<li class="menu_item menu_mm"><a href="Maestros.html">Docentes</a></li>
-							<li class="menu_item menu_mm"><a href="Publicaciones.html">Publicaciones</a></li>
-							<li class="menu_item menu_mm"><a href="login.html">Iniciar sesion</a></li>
+							<li class="menu_item menu_mm"><a href="index.php">Inicio</a></li>
+							<li class="menu_item menu_mm"><a href="Cursos.php">Cursos</a></li>
+							<li class="menu_item menu_mm"><a href="Maestros.php">Docentes</a></li>
+							<li class="menu_item menu_mm"><a href="Publicaciones.php">Publicaciones</a></li>
+							<li class="menu_item menu_mm"><a href="login.php">Iniciar sesion</a></li>
+															<?php
+									session_start();
+									if(isset($_SESSION['roles_idroles'])){
+										if($_SESSION['roles_idroles'] == 2){
+											echo "<li class='main_nav_item'><a href='panel.php'>Mi Panel</a></li>";
+										}elseif($_SESSION['roles_idroles'] == 3) {
+											echo "<li class='main_nav_item'><a href='Crear Curso.php'>Mi Panel</a></li>";
+										}
+
+									}
+								?>
 						</ul>
 					</div>
 				</div>
@@ -81,7 +114,7 @@
 				</div>
 
 				<div class="home_content">
-					<h1>Nombre del curso</h1>
+					<h1>Publicaciones</h1>
 				</div>
 			</div>
 
@@ -95,9 +128,12 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-12">
-								<div class="elements_title">Contenido del curso</div>
+								<div class="elements_title">Listado de Publicaciones</div>
 							</div>
 						</div>
+
+						<input id="search_form_category" class="input_field search_form_category" type="text" placeholder="Buscar">
+						
 
 						<div class="row pbars_accordions_container">
 
@@ -108,7 +144,7 @@
 							<div class="elements_accordions">
 
 								<div class="accordion_container">
-									<div class="accordion d-flex flex-row align-items-center"> Nombre del tema.</div>
+									<div class="accordion d-flex flex-row align-items-center"> Nombre de la publicacion / Nombre del autor.</div>
 									<div class="accordion_panel">
 										<p>Pdf - git - google coolab - RStudio Onlink.</p>
 									</div>

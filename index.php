@@ -34,18 +34,38 @@
 					<nav class="main_nav_container">
 						<div class="main_nav">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="index.html">Inicio</a></li>
-								<li class="main_nav_item"><a href="Cursos.html">Cursos</a></li>
-								<li class="main_nav_item"><a href="Maestros.html">Docentes</a></li>
-								<li class="main_nav_item"><a href="Publicaciones.html">Publicaciones</a></li>
+								<li class="main_nav_item"><a href="index.php">Inicio</a></li>
+								<li class="main_nav_item"><a href="Cursos.php">Cursos</a></li>
+								<li class="main_nav_item"><a href="Maestros.php">Docentes</a></li>
+								<li class="main_nav_item"><a href="Publicaciones.php">Publicaciones</a></li>
+								<?php
+									session_start();
+									if(isset($_SESSION['roles_idroles'])){
+										if($_SESSION['roles_idroles'] == 2){
+											echo "<li class='main_nav_item'><a href='panel.php'>Mi Panel</a></li>";
+										}elseif($_SESSION['roles_idroles'] == 3) {
+											echo "<li class='main_nav_item'><a href='Crear Curso.php'>Mi Panel</a></li>";
+										}
+
+									}
+								?>	
 							</ul>
 						</div>
 					</nav>
 				</div>
 
-				<div class="header_side d-flex flex-row justify-content-center align-items-center color: cornsilk;">
-					<li class="main_nav_item" color: cornsilk; ><a href="login.html">Iniciar sesion</a></li>
-				</div>
+				<?php
+					session_start();
+					if (isset($_SESSION['roles_idroles'])) {
+						echo "<div class='header_side d-flex flex-row justify-content-center align-items-center color: cornsilk;'>";
+						echo "<li class='main_nav_item' color: cornsilk; ><a href='controller/closeSesion.php'>Cerrar sesion</a></li>";
+						echo "</div>";
+ 					}else{
+						echo "<div class='header_side d-flex flex-row justify-content-center align-items-center color: cornsilk;'>";
+						echo "<li class='main_nav_item' color: cornsilk; ><a href='login.php'>Iniciar sesion</a></li>";
+						echo "</div>";
+					}
+				?>
 
 				<!-- Hamburger -->
 				<div class="hamburger_container">
@@ -66,11 +86,11 @@
 			<div class="menu_inner menu_mm">
 				<div class="menu menu_mm">
 					<ul class="menu_list menu_mm">
-						<li class="menu_item menu_mm"><a href="index.html">Inicio</a></li>
-						<li class="menu_item menu_mm"><a href="Cursos.html">Cursos</a></li>
-						<li class="menu_item menu_mm"><a href="Maestros.html">Docentes</a></li>
-						<li class="menu_item menu_mm"><a href="Publicaciones.html">Publicaciones</a></li>
-						<li class="menu_item menu_mm"><a href="login.html">Iniciar sesion</a></li>
+						<li class="menu_item menu_mm"><a href="index.php">Inicio</a></li>
+						<li class="menu_item menu_mm"><a href="Cursos.php">Cursos</a></li>
+						<li class="menu_item menu_mm"><a href="Maestros.php">Docentes</a></li>
+						<li class="menu_item menu_mm"><a href="Publicaciones.php">Publicaciones</a></li>
+						<li class="menu_item menu_mm"><a href="login.php">Iniciar sesion</a></li>
 					</ul>
 				</div>
 			</div>
@@ -173,7 +193,7 @@
 						<div class="card">
 							<img class="card-img-top" src="images/course_2.jpg" alt="https://unsplash.com/@cikstefan">
 							<div class="card-body text-center">
-								<div class="card-title"><a href="Contenido.html">Biologia</a></div>
+								<div class="card-title"><a href="Contenido.php">Biologia</a></div>
 								<div class="card-text">Datos exploratorios, grafias, etc...</div>
 							</div>
 
@@ -201,7 +221,7 @@
 							<div class="register_content text-center">
 								<h1 class="register_title">Registrate y disfruta de todo el contenido </h1>
 								<p class="register_text">Solo podras ver todo el contenido si te registras y eres aceptado.</p>
-								<div class="button button_1 register_button mx-auto trans_200"><a href="login.html">Registrate ahora</a></div>
+								<div class="button button_1 register_button mx-auto trans_200"><a href="login.php">Registrate ahora</a></div>
 							</div>
 						</div>
 					</div>
@@ -298,9 +318,9 @@
 								<ul>
 									<li class="footer_list_item"><a href="#">Inicio</a></li>
 									<li class="footer_list_item"><a href="#">Cursos</a></li>
-									<li class="footer_list_item"><a href="courses.html">Docentes</a></li>
-									<li class="footer_list_item"><a href="news.html">Contacto</a></li>
-									<li class="footer_list_item"><a href="contact.html">Iniciar Sesion</a></li>
+									<li class="footer_list_item"><a href="courses.php">Docentes</a></li>
+									<li class="footer_list_item"><a href="news.php">Contacto</a></li>
+									<li class="footer_list_item"><a href="contact.php">Iniciar Sesion</a></li>
 								</ul>
 							</div>
 						</div>

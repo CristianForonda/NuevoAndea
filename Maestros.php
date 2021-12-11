@@ -31,17 +31,39 @@
 					<nav class="main_nav_container">
 						<div class="main_nav">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="index.html">Inicio</a></li>
-								<li class="main_nav_item"><a href="Cursos.html">Cursos</a></li>
-								<li class="main_nav_item"><a href="Maestros.html">Docentes</a></li>
-								<li class="main_nav_item"><a href="Publicaciones.html">Publicaciones</a></li>
+								<li class="main_nav_item"><a href="index.php">Inicio</a></li>
+								<li class="main_nav_item"><a href="Cursos.php">Cursos</a></li>
+								<li class="main_nav_item"><a href="Maestros.php">Docentes</a></li>
+								<li class="main_nav_item"><a href="Publicaciones.php">Publicaciones</a></li>
+								<?php
+									session_start();
+									if(isset($_SESSION['roles_idroles'])){
+										if($_SESSION['roles_idroles'] == 2){
+											echo "<li class='main_nav_item'><a href='panel.php'>Mi Panel</a></li>";
+										}elseif($_SESSION['roles_idroles'] == 3) {
+											echo "<li class='main_nav_item'><a href='Crear Curso.php'>Mi Panel</a></li>";
+										}
+
+									}
+								?>
 							</ul>
 						</div>
 					</nav>
 				</div>
 
 				<div class="header_side d-flex flex-row justify-content-center align-items-center color: cornsilk;">
-					<li class="main_nav_item" color: cornsilk; ><a href="login.html">Iniciar sesion</a></li>
+				<?php
+					session_start();
+					if (isset($_SESSION['roles_idroles'])) {
+						echo "<div class='header_side d-flex flex-row justify-content-center align-items-center color: cornsilk;'>";
+						echo "<li class='main_nav_item' color: cornsilk; ><a href='controller/closeSesion.php'>Cerrar sesion</a></li>";
+						echo "</div>";
+ 					}else{
+						echo "<div class='header_side d-flex flex-row justify-content-center align-items-center color: cornsilk;'>";
+						echo "<li class='main_nav_item' color: cornsilk; ><a href='login.php'>Iniciar sesion</a></li>";
+						echo "</div>";
+					}
+				?>
 				</div>
 
 				<!-- Hamburger -->
@@ -63,11 +85,11 @@
 			<div class="menu_inner menu_mm">
 				<div class="menu menu_mm">
 					<ul class="menu_list menu_mm">
-						<li class="menu_item menu_mm"><a href="index.html">Inicio</a></li>
-						<li class="menu_item menu_mm"><a href="Cursos.html">Cursos</a></li>
-						<li class="menu_item menu_mm"><a href="Maestros.html">Docentes</a></li>
-						<li class="menu_item menu_mm"><a href="Publicaciones.html">Publicaciones</a></li>
-						<li class="menu_item menu_mm"><a href="login.html">Iniciar sesion</a></li>
+						<li class="menu_item menu_mm"><a href="index.php">Inicio</a></li>
+						<li class="menu_item menu_mm"><a href="Cursos.php">Cursos</a></li>
+						<li class="menu_item menu_mm"><a href="Maestros.php">Docentes</a></li>
+						<li class="menu_item menu_mm"><a href="Publicaciones.php">Publicaciones</a></li>
+						<li class="menu_item menu_mm"><a href="login.php">Iniciar sesion</a></li>
 					</ul>
 				</div>
 			</div>
@@ -200,9 +222,9 @@
 								<ul>
 									<li class="footer_list_item"><a href="#">Inicio</a></li>
 									<li class="footer_list_item"><a href="#">Cursos</a></li>
-									<li class="footer_list_item"><a href="courses.html">Docentes</a></li>
-									<li class="footer_list_item"><a href="news.html">Contacto</a></li>
-									<li class="footer_list_item"><a href="contact.html">Iniciar Sesion</a></li>
+									<li class="footer_list_item"><a href="courses.php">Docentes</a></li>
+									<li class="footer_list_item"><a href="news.php">Contacto</a></li>
+									<li class="footer_list_item"><a href="contact.php">Iniciar Sesion</a></li>
 								</ul>
 							</div>
 						</div>

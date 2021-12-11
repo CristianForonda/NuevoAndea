@@ -1,3 +1,25 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['roles_idroles'])) {
+  switch($_SESSION['roles_idroles']){
+    case 1:
+      header("");
+    break;
+    case 2:
+      header("location: panel.php");
+    break;
+    case 3:
+      header("location: Crear curso.php");
+    break;
+
+    default:
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,20 +35,26 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="#" class="sign-in-form">
+          <form action="controller/validar.php" class="sign-in-form" method="post">
             <h2 class="title">Iniciar Sesión</h2>
 
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Correo Electronico" />
+              <input type="text" placeholder="Correo Electronico" name="correo" />
             </div>
 
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Contraseña" />
+              <input type="password" placeholder="Contraseña" name="contraseña" />
             </div>
 
             <input type="submit" value="Ingresar" class="btn solid" />
+
+            <?php
+              if(isset($_GET["fallo"]) && $_GET["fallo"] == 'true'){
+                echo "<div style='color:red'>Correo o contraseña invalido - O no esta habilitado </div>";
+              }
+            ?>
             
           </form>
 

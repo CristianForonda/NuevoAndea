@@ -28,12 +28,11 @@
       }
     </style>
 
-    
     <!-- Custom styles for this template -->
     <link href="dashboard/dashboard.css" rel="stylesheet">
   </head>
 
-  <body> 
+  <body>  
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
       <a class="navbar-brand col-md-2 col-lg-2 me-0 px-3" href="index.html">Andea</a>
       <button class="navbar-toggler d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,21 +52,21 @@
           <div class="position-sticky pt-3">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="panel.html">
+                <a class="nav-link" aria-current="page" href="panel.php">
                   <span data-feather="home"></span>
                   Principal
                 </a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="Estadisticas.html">
+                <a class="nav-link" href="Estadisticas.php">
                   <span data-feather="bar-chart-2"></span>
                   Estadisticas
                 </a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="Sugerencias.html">
+                <a class="nav-link active" href="Sugerencias.php">
                   <span data-feather="file"></span>
                   Sugerencias
                 </a>
@@ -77,76 +76,15 @@
         </nav>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-          <h2>Listado</h2>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Filtrar por</option>
-            <option value="1">Todos</option>
-            <option value="2">Aceptados</option>
-            <option value="3">No Acectados</option>
-            <option value="4">Creadores</option>
-            <option value="5">No creadores</option>
-          </select> 
-
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Nombre</th>
-                  <th>Apellido</th>
-                  <th>Correo</th>
-                  <th>Institucion</th>
-                  <th>Estado</th>
-                  <th>Hab Creador</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Cristian</td>
-                  <td>Foronda</td>
-                  <td>cristian.foronda123@gmail.com</td>
-                  <td>Universidad del Magdalena</td>
-
-                  <td>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                      <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-                    </div>
-                  </td>
-
-                  <td>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                      <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-                    </div>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>2</td>
-                  <td>Cristian</td>
-                  <td>Foronda</td>
-                  <td>cristian.foronda123@gmail.com</td>
-                  <td>Universidad del Magdalena</td>
-
-                  <td>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                      <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-                    </div>
-                  </td>
-
-                  <td>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                      <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="my-3 p-3 bg-body rounded shadow-sm">
+            <h6 class="border-bottom pb-2 mb-0">Sugerencias</h6>
+            <div class="d-flex text-muted pt-3">
+              <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+              <p class="pb-3 mb-0 small lh-sm border-bottom">
+                <strong class="d-block text-gray-dark">Correo de la persona</strong>
+                Mensaje de la persona
+              </p>
+            </div>
           </div>
         </main>
       </div>

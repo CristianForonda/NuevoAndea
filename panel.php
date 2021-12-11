@@ -1,3 +1,19 @@
+
+<?php
+//Seguridad de sesion de las paginas.
+include('controller/dbConnect.php');
+session_start();
+
+if(!isset($_SESSION['roles_idroles'])){
+  header("location: login.php");
+}else{
+  if ($_SESSION['roles_idroles'] != 2) {
+    header("location: index.php");
+  }
+}
+
+?>
+
 <!doctype html>
 <html lang="es">
   <head>
@@ -8,7 +24,7 @@
     <meta name="generator" content="Hugo 0.83.1">
     <title>Andea-Panel</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
-    
+
     <!-- Bootstrap core CSS -->
     <link href="dashboard/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -28,20 +44,29 @@
       }
     </style>
 
+    
     <!-- Custom styles for this template -->
     <link href="dashboard/dashboard.css" rel="stylesheet">
   </head>
 
-  <body>  
+  <body> 
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-md-2 col-lg-2 me-0 px-3" href="index.html">Andea</a>
+      <a class="navbar-brand col-md-2 col-lg-2 me-0 px-3" href="index.php">Andea</a>
+      <p style="color: #FFFFFF;">
+      <?php
+          session_start();
+          $correo = $_SESSION['correo'];
+          echo "Bienvenido {$correo}.";
+
+        ?>
+      </p>
       <button class="navbar-toggler d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
   
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Cerrar Sesion</a>
+          <a class="nav-link" href="controller/closeSesion.php">Cerrar Sesion</a>
         </li>
       </ul>
     </header>
@@ -51,23 +76,22 @@
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
           <div class="position-sticky pt-3">
             <ul class="nav flex-column">
-
               <li class="nav-item">
-                <a class="nav-link" href="panel.html">
+                <a class="nav-link active" aria-current="page" href="panel.php">
                   <span data-feather="home"></span>
                   Principal
                 </a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="Estadisticas.html">
+                <a class="nav-link" href="Estadisticas.php">
                   <span data-feather="bar-chart-2"></span>
                   Estadisticas
                 </a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="Sugerencias.html">
+                <a class="nav-link" href="Sugerencias.php">
                   <span data-feather="file"></span>
                   Sugerencias
                 </a>
@@ -77,8 +101,15 @@
         </nav>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      
-          <h2>Por instituciones</h2>
+          <h2>Listado</h2>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Filtrar por</option>
+            <option value="1">Todos</option>
+            <option value="2">Aceptados</option>
+            <option value="3">No Acectados</option>
+            <option value="4">Creadores</option>
+            <option value="5">No creadores</option>
+          </select> 
 
           <div class="table-responsive">
             <table class="table table-striped table-sm">
@@ -86,40 +117,44 @@
                 <tr>
                   <th>#</th>
                   <th>Nombre</th>
-                  <th>Profesores</th>
-                  <th>Estudiantes</th>
-                  <th>Otros</th>
-                  <th>total</th>
+                  <th>Apellido</th>
+                  <th>Correo</th>
+                  <th>Telefono</th>
+                  <th>Creador</th>
+                  <th>Usuario</th>
                 </tr>
               </thead>
 
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Universidad del Magdalena</td>
-                  <td>5</td>
-                  <td>7</td>
-                  <td>8</td>
-                  <td>20</td>
-                </tr>
+                <?php
+                  $sql = "SELECT * FROM usuario";
+                  $result = mysqli_query($conexion, $sql);
 
+                  while($mostrar = mysqli_fetch_array($result)){
+                ?>
                 <tr>
-                  <td>2</td>
-                  <td>Sergio Arboleda</td>
-                  <td>4</td>
-                  <td>3</td>
-                  <td>1</td>
-                  <td>8</td>
-                </tr>
-
-                <tr>
-                  <td>3</td>
-                  <td>Ucc</td>
-                  <td>1</td>
-                  <td>0</td>
-                  <td>2</td>
-                  <td>3</td>
-                </tr>
+                  <td><?php echo $mostrar['idusuario']?></td>
+                  <td><?php echo $mostrar['nombre'] ?></td>
+                  <td><?php echo $mostrar['apellido'] ?></td>
+                  <td><?php echo $mostrar['correo'] ?></td>
+                  <td><?php echo $mostrar['telefono'] ?></td>
+                  <?php
+                      echo '<form action = "controller/validarChech.php" mehtod="POST">';
+                      echo  '<td><div class="form-check form-switch">';
+                      echo  '<input class="form-check-input" type="checkbox" name="check" id="flexSwitchCheckDefault">';
+                      echo  '<label class="form-check-label" for="flexSwitchCheckDefault"></label>';
+                      echo  '</div></td>';
+                      echo '</form>';
+                  ?>
+                  <?php
+                      echo  '<td><div class="form-check form-switch">';
+                      echo  '<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">';
+                      echo  '<label class="form-check-label" for="flexSwitchCheckDefault"></label>';
+                      echo  '</div></td>';
+                  ?>
+                  <?php
+                    }
+                  ?>
               </tbody>
             </table>
           </div>
